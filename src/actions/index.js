@@ -3,6 +3,8 @@ import jsonPlaceholder from "../apis/jsonPlaceholder";
 export const fetchPosts = async () => {
     // bad approach!!! Breaks rules of Redux and action creators...
     // will give error message: "Actions must be plain objects..."
+    // can test out babeljs.io to see what it transpiles to... 
+    // async/await syntax changes the function when it transpiles; no longer returning plan JS object.
     const response = await jsonPlaceholder.get('/posts');
 
     return {
