@@ -22,6 +22,6 @@ export default () => {
     //             state.map(el => el===[someval]?yes:no)
     //    Objects:  {...state, key:'blah'}, 
     //              {...state, newProp:value}, 
-    //              {...state, oldProp:undefined} / _.omit(state,'oldProp') 
+    //              {...state, oldProp:undefined} / _.omit(state,'oldProp') <-- better to use Lo dash library
     return 123;
 }
