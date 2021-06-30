@@ -7,7 +7,7 @@ export const fetchPosts = () => async dispatch => { // getState can be second ar
     const response = await jsonPlaceholder.get('/posts');
 
     // don't need to return an action in an inner function here, just use dispatch
-    dispatch({ type: 'FETCH_POSTS', payload: response });  
+    dispatch({ type: 'FETCH_POSTS', payload: response.data });  
 };
 
 // still fine
