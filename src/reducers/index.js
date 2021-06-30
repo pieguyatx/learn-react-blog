@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
+import postsReducer from './postsReducer';
 
 export default combineReducers({
-    // dummy variable to get rid of error messages in the beginning until you can fill in real stuff
-    dummyKey: () => 999 
+    posts: postsReducer
 });
