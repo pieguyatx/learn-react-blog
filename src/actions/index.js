@@ -10,6 +10,11 @@ export const fetchPosts = () => async dispatch => { // getState can be second ar
     dispatch({ type: 'FETCH_POSTS', payload: response.data });  
 };
 
+export const fetchUser = (id) => async dispatch => {
+    const response = await jsonPlaceholder.get(`/users/${id}`);
+    dispatch({ type: 'FETCH_USER', payload: response.data});
+};
+
 // still fine
 export const selectPost = () => {
     return {
