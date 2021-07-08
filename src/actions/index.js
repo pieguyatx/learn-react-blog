@@ -11,18 +11,15 @@ export const fetchPosts = () => async dispatch => { // getState can be second ar
     dispatch({ type: 'FETCH_POSTS', payload: response.data });  
 };
 
-// export const fetchUser = (id) => async dispatch => {
-//     const response = await jsonPlaceholder.get(`/users/${id}`);
-//     dispatch({ type: 'FETCH_USER', payload: response.data});
-// };
-
-// Refactor to memoize function above w/ lodash:
-export const fetchUser = function(id) { 
-    return async function(dispatch) {
-        const response = await jsonPlaceholder.get(`/users/${id}`);
-        dispatch({ type: 'FETCH_USER', payload: response.data});
-    }
+export const fetchUser = (id) => dispatch => {
+    _fetchUser(id, dispatch);
 };
+
+// underscore below notes it's a private function; other engineers shouldn't call this, generally
+const _fetchUser = _.memoize(async (id, dispatch) => {
+    const response = await jsonPlaceholder.get(`/users/${id}`);
+    dispatch({ type: 'FETCH_USER', payload: response.data});
+});
 
 // still fine
 export const selectPost = () => {
