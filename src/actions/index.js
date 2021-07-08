@@ -3,9 +3,17 @@ import jsonPlaceholder from "../apis/jsonPlaceholder";
 
 export const fetchPostsAndUsers = () => async (dispatch, getState) => {
     await dispatch(fetchPosts());   // await ensures we wait for the posts before continuing
-    // get only the unique elements in the array of userIds read from all the posts:
-    const userIds = _.uniq(_.map(getState().posts, 'userId'));
-    userIds.forEach(id => dispatch(fetchUser(id)));  
+
+    // // get only the unique elements in the array of userIds read from all the posts:
+    // const userIds = _.uniq(_.map(getState().posts, 'userId'));
+    // userIds.forEach(id => dispatch(fetchUser(id)));  
+
+    // refactor; see: https://www.udemy.com/course/react-redux/learn/lecture/12586932#questions
+    _.chain(getState().posts)
+        .map('userId')
+        .uniq()
+        .forEach(id => dispatch(fetchUser(id)))
+        .value() // <-- that's like "execute all this"
 };
 
 // redux-thunk let's us return a function
