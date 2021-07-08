@@ -1,7 +1,7 @@
 // Reducer produces 'state' data, based *only* on previous 'state' data inputs and an 'action'
 // ...so don't do any API requests, pulling values from DOM, etc...
 // This keeps the reducer "pure" and only basing things off the state and action
-export default (state = [], action) => {
+const postsReducer = (state = [], action) => {
 
     // A reducer always needs a return statement of something not "undefined"
     // ***Should not "mutate" the input state data, or change the old data; 
@@ -38,4 +38,6 @@ export default (state = [], action) => {
     //         return state;
     // }
 
-}
+};
+
+export default postsReducer;
