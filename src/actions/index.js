@@ -1,6 +1,12 @@
 import _ from 'lodash'; // import as underscore _ by convention
 import jsonPlaceholder from "../apis/jsonPlaceholder";
 
+export const fetchPostsAndUsers = () => async dispatch => {
+    console.log("Going to fetch posts...")
+    await dispatch(fetchPosts());   // await ensures we wait for the posts before continuing
+    console.log("Fetched posts.")
+};
+
 // redux-thunk let's us return a function
 // this function returns another function
 export const fetchPosts = () => async dispatch => { // getState can be second arg next to dispatch
