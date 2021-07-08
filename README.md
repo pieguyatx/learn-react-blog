@@ -8,6 +8,7 @@ Setting up React, Redux, React-Redux, axios, redux-thunk:
     npm install --save redux react-redux axios redux-thunk
 
 Use the [lodash JS utility](https://lodash.com/) to help with dealing with arrays/objects: 
+    npm install --save lodash
 
 ## Available Scripts
 
