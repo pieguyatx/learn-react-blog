@@ -1,12 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { fetchUser } from '../actions';
 
 class UserHeader extends React.Component {
-    componentDidMount() { // spell this right!! No errors if it's not???
-        this.props.fetchUser(this.props.userId); // dispatches action to reducers, adds result to state...
-    }
-
     render() {
         const { user } = this.props; // destructure "user" from props defined below
 
@@ -27,5 +22,5 @@ const mapStateToProps = (state, ownProps) => { // 2nd arg lets it access props f
 };
 
 export default connect( // connects State and Actions to props here
-    mapStateToProps, { fetchUser }
+    mapStateToProps
 )(UserHeader);

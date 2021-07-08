@@ -1,10 +1,11 @@
 import _ from 'lodash'; // import as underscore _ by convention
 import jsonPlaceholder from "../apis/jsonPlaceholder";
 
-export const fetchPostsAndUsers = () => async dispatch => {
-    console.log("Going to fetch posts...")
+export const fetchPostsAndUsers = () => async (dispatch, getState) => {
     await dispatch(fetchPosts());   // await ensures we wait for the posts before continuing
-    console.log("Fetched posts.")
+    // get only the unique elements in the array of userIds read from all the posts:
+    const userIds = _.uniq(_.map(getState().posts, 'userId'));
+    userIds.forEach(id => dispatch(fetchUser(id)));  
 };
 
 // redux-thunk let's us return a function
