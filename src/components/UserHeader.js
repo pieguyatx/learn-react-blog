@@ -8,7 +8,7 @@ class UserHeader extends React.Component {
     }
 
     render() {
-        const user = this.props.users.find( (user) => user.id === this.props.userId);
+        const { user } = this.props; // destructure "user" from props defined below
 
         if(!user){
             return null;
@@ -20,8 +20,10 @@ class UserHeader extends React.Component {
     }
 }
 
-const mapStateToProps = (state) => {
-    return {users: state.users};    // defines pieces of state (from reducers) to add to props
+// You can extract logic into mapStateToProps to increase usability; put it in a separate file
+const mapStateToProps = (state, ownProps) => { // 2nd arg lets it access props from the component above
+    // defines pieces of state (from reducers) to add to props:
+    return { user: state.users.find(user => user.id === ownProps.userId) };    
 };
 
 export default connect( // connects State and Actions to props here
