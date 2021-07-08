@@ -7,6 +7,8 @@ Setting up React, Redux, React-Redux, axios, redux-thunk:
     npm audit fix
     npm install --save redux react-redux axios redux-thunk
 
+Use the [lodash JS utility](https://lodash.com/) to help with dealing with arrays/objects: 
+
 ## Available Scripts
 
 In the project directory, you can run:
